@@ -6,45 +6,76 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[800],
       appBar: AppBar(
-        title: Text('MY FIRST APP'),
+        title: Text('Ninja ID Card'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.grey[700],
+        elevation: 0,
       ),
-      body: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 6,
-            child: Container(
-              padding: EdgeInsets.all(30),
-              color: Colors.cyan,
-              child: Text('1'),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/hafiz.jpg'),
+                radius: 100,
+              ),
             ),
-          ),
-          Expanded(
-            flex: 4,
-            child: Container(
-              padding: EdgeInsets.all(30),
-              color: Colors.yellow,
-              child: Text('2'),
+            Divider(
+              height: 90,
+              color: Colors.green,
             ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              padding: EdgeInsets.all(30),
-              color: Colors.blue,
-              child: Text('3'),
+            Text(
+              'Name',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2,
+              ),
             ),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Text('Click'),
-        backgroundColor: Colors.amber,
-        onPressed: () {
-          print("You clicked the lower one");
-        },
+            SizedBox(height: 10),
+            Text(
+              'Hafiz',
+              style: TextStyle(
+                  color: Colors.amberAccent[200],
+                  letterSpacing: 2,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 30),
+            Text(
+              'Level 2',
+              style: TextStyle(
+                  color: Colors.amberAccent[200],
+                  letterSpacing: 2,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: <Widget>[
+                Icon(
+                  Icons.email,
+                  color: Colors.grey[400],
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'MailUs@gmail.com',
+                  style: TextStyle(
+                    color: Colors.black,
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
