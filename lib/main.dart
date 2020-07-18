@@ -1,7 +1,35 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: Home()));
+void main() => runApp(MaterialApp(
+      home: QuoteList(),
+    ));
 
+class QuoteList extends StatefulWidget {
+  @override
+  _QuoteListState createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+  int seq = 0;
+  List<String> quotes = ["FUck You", "Fuck Me", "STFU"];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        title: Text('Awsome Quotes'),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+      ),
+      body: Column(
+        children: quotes.map((quote) {
+          return Container(child: Text('quote'));
+        }).toList(),
+      ),
+    );
+  }
+}
+/* statefull object first time 
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -95,3 +123,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
+*/
