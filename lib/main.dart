@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
 
 void main() => runApp(MaterialApp(
       home: QuoteList(),
@@ -10,23 +11,49 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
-  int seq = 0;
-  List<String> quotes = ["FUck You", "Fuck Me", "STFU"];
+  List<Quote> quotes = [Quote('FUCK YOU', 'hafiz'), Quote('Fuck', 'hafiz')];
+
+  Widget quotetemplate(quote) {
+    return Card(
+      margin: EdgeInsets.all(50),
+      child: Padding(
+        padding: EdgeInsets.all(30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(quote.text,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                )),
+            SizedBox(
+              height: 6,
+            ),
+            Text(
+              quote.author,
+              style: TextStyle(
+                fontSize: 10,
+                color: Colors.red,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(
-        title: Text('Awsome Quotes'),
-        centerTitle: true,
-        backgroundColor: Colors.black,
-      ),
-      body: Column(
-        children: quotes.map((quote) {
-          return Container(child: Text('quote'));
-        }).toList(),
-      ),
-    );
+        backgroundColor: Colors.grey,
+        appBar: AppBar(
+          title: Text('Awsome Quotes'),
+          centerTitle: true,
+          backgroundColor: Colors.black,
+        ),
+        body: Column(
+          children: quotes.map((quote) => quotetemplate(quote)).toList(),
+        ));
   }
 }
 /* statefull object first time 
